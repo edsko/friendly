@@ -18,7 +18,7 @@ cabal-version:       >=1.10
 executable friendly
   main-is:             Main.hs
   -- other-modules:
-  build-depends:       base >=4.9 && <4.10
+  build-depends:       base >=4.9 && <4.11
                      , lens
                      , optparse-applicative
   hs-source-dirs:      src
