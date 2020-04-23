@@ -1,5 +1,9 @@
 # Revision history for friendly
 
-## 0.1.0.0 -- YYYY-mm-dd
+## 0.1.0.1 -- 2020-04-23
 
-* First version. Released on an unsuspecting world.
+* Adjust bounds for ghc 8.8
+
+## 0.1.0.0 -- 2018-04-25
+
+* Initial public release

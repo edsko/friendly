@@ -4,6 +4,7 @@ module Main where
 import Control.Lens
 import Data.Char
 import Data.Bifunctor
+import Data.Monoid
 import Options.Applicative
 
 {-------------------------------------------------------------------------------
@@ -53,7 +54,10 @@ remainingWidth :: FriendlyContext c => Options -> c -> Int
 remainingWidth Options{..} c = maxWidth - c ^. indentation
 
 {-------------------------------------------------------------------------------
-  Friendly version of Cardano's semi JSON
+  Pretty-print JSON-like input.
+
+  (Things are set up so that we can have different sorts of inputs; but
+  right now this is the only one we actually support.)
 -------------------------------------------------------------------------------}
 
 data SemiJsonContext = SJC {
