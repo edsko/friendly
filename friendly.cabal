@@ -21,7 +21,7 @@ source-repository head
 
 executable friendly
   main-is:             Main.hs
-  build-depends:       base                 >= 4.7  && < 4.14
+  build-depends:       base                 >= 4.7  && < 4.15
                      , bifunctors           >= 4.2  && < 5.6
                      , lens                 >= 4.6  && < 4.20
                      , optparse-applicative >= 0.11 && < 0.16
