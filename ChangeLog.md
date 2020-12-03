@@ -1,5 +1,10 @@
 # Revision history for friendly
 
+## 0.1.0.2 -- 2020-12-03
+
+* Adjust bounds for ghc 8.10
+  Nicholas Clarke <nick@topos.org.uk>
+
 ## 0.1.0.1 -- 2020-04-23
 
 * Adjust bounds for ghc 8.8
