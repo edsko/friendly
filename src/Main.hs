@@ -50,7 +50,7 @@ indent :: FriendlyContext c => c -> String
 indent c = "\n" ++ replicate (getIndentation c) ' '
 
 remainingWidth :: FriendlyContext c => Options -> c -> Int
-remainingWidth Options{..} c = maxWidth - getIndentation c
+remainingWidth opts c = maxWidth opts - getIndentation c
 
 {-------------------------------------------------------------------------------
   Pretty-print JSON-like input.
