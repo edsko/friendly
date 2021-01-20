@@ -1,5 +1,10 @@
 # Revision history for friendly
 
+## 0.1.0.3 -- 2021-01-20
+
+* Reduce dependencies
+  Thomas Winant <dewinant@gmail.com>  
+
 ## 0.1.0.2 -- 2020-12-03
 
 * Adjust bounds for ghc 8.10

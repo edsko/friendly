@@ -1,5 +1,5 @@
 name:                friendly
-version:             0.1.0.2
+version:             0.1.0.3
 synopsis:            Attempt to pretty-print any input
 description:         The friendly executable copies standard input
                      to standard output, attempting to pretty-print the
