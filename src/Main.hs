@@ -1,7 +1,5 @@
-{-# LANGUAGE TemplateHaskell #-}
 module Main where
 
-import Control.Lens
 import Data.Char
 import Data.Bifunctor
 import Data.Monoid
@@ -39,19 +37,20 @@ getOptions = execParser opts
 
 class FriendlyContext c where
   initContext :: c
-  indentation :: Lens' c Int
+  getIndentation :: c -> Int
+  modifyIndentation :: (Int -> Int) -> c -> c
 
 incIndentation :: FriendlyContext c => c -> c
-incIndentation c = c & indentation %~ (+ 2)
+incIndentation = modifyIndentation (+ 2)
 
 decIndentation :: FriendlyContext c => c -> c
-decIndentation c = c & indentation %~ (\x -> x - 2)
+decIndentation = modifyIndentation (\x -> x - 2)
 
 indent :: FriendlyContext c => c -> String
-indent c = "\n" ++ replicate (c ^. indentation) ' '
+indent c = "\n" ++ replicate (getIndentation c) ' '
 
 remainingWidth :: FriendlyContext c => Options -> c -> Int
-remainingWidth Options{..} c = maxWidth - c ^. indentation
+remainingWidth Options{..} c = maxWidth - getIndentation c
 
 {-------------------------------------------------------------------------------
   Pretty-print JSON-like input.
@@ -64,13 +63,12 @@ data SemiJsonContext = SJC {
       _sjcIndent :: Int
     }
 
-makeLenses ''SemiJsonContext
-
 instance FriendlyContext SemiJsonContext where
   initContext = SJC {
                     _sjcIndent = 0
                   }
-  indentation = sjcIndent
+  getIndentation = _sjcIndent
+  modifyIndentation f sjc = sjc { _sjcIndent = f (_sjcIndent sjc) }
 
 semiJson :: Options -> String -> String
 semiJson opts = go initContext
