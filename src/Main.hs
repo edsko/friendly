@@ -2,7 +2,6 @@ module Main where
 
 import Data.Char
 import Data.Bifunctor
-import Data.Monoid
 import Options.Applicative
 
 {-------------------------------------------------------------------------------
