@@ -1,5 +1,10 @@
 # Revision history for friendly
 
+## 0.1.1 -- 2025-07-19
+
+* Relax dependencies
+* Drop support for `ghc < 9.2`
+
 ## 0.1.0.4 -- 2024-01-18
 
 * Relax bounds (support ghc up to 9.8)
